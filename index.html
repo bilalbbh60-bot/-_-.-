@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ماينكرافت البيدروك - الإصدارات والمودات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --secondary: #0d47a1;
+            --accent: #ff5722;
+            --dark: #121212;
+            --light: #f5f5f5;
+            --gray: #424242;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --error: #f44336;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .admin-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .admin-btn:hover {
+            background-color: #e64a19;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-btn:hover {
+            background-color: #e64a19;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sections Bar */
+        .sections-bar {
+            background-color: var(--gray);
+            padding: 15px 0;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .sections-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .section-tab {
+            background-color: var(--dark);
+            padding: 15px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .section-tab.active {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-tab:hover:not(.active) {
+            background-color: #2a2a2a;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            margin-bottom: 50px;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-header h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid var(--gray);
+            background-color: #2a2a2a;
+            color: white;
+            width: 300px;
+        }
+
+        .search-box button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .post-card {
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .post-image {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 20px;
+        }
+
+        .post-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .post-content p {
+            color: #ccc;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        .post-type {
+            background-color: var(--primary);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+        }
+
+        .ad-badge {
+            background-color: var(--accent);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            display: none;
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 50px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        .admin-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .admin-header h3 {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .admin-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 5px;
+            border: 1px solid var(--gray);
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .publish-btn {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .publish-btn:hover {
+            background-color: #388e3c;
+        }
+
+        .cancel-btn {
+            background-color: var(--error);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cancel-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Ad Publish Section */
+        .ad-publish {
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 50px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .ad-publish h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .ad-publish p {
+            margin-bottom: 25px;
+            color: #ccc;
+        }
+
+        .code-input {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .code-input input {
+            padding: 12px 15px;
+            border-radius: 5px;
+            border: 1px solid var(--gray);
+            background-color: #1a1a1a;
+            color: white;
+            width: 200px;
+        }
+
+        .code-input button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .facebook-btn {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .facebook-btn:hover {
+            background-color: #0e5aac;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray);
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h3 {
+            color: var(--primary);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .sections-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .admin-form {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-cube fa-2x"></i>
+                    <h1>ماينكرافت البيدروك</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#releases">الإصدارات</a>
+                    <a href="#mods">المودات</a>
+                    <a href="#publish-ad">انشر إعلانك</a>
+                    <button class="admin-btn" id="adminLoginBtn">دخول الأدمن</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>استكشف عالم ماينكرافت البيدروك</h2>
+            <p>أحدث الإصدارات والمودات لتجربة لعب استثنائية. اكتشف، حمّل، واستمتع!</p>
+            <button class="cta-btn">
+                <i class="fas fa-download"></i>
+                ابدأ الاستكشاف
+            </button>
+        </div>
+    </section>
+
+    <!-- Sections Bar -->
+    <section class="sections-bar">
+        <div class="container">
+            <div class="sections-container">
+                <div class="section-tab active" data-section="releases">
+                    <i class="fas fa-download"></i>
+                    إصدارات ماينكرافت البيدروك
+                </div>
+                <div class="section-tab" data-section="mods">
+                    <i class="fas fa-puzzle-piece"></i>
+                    مودات ماينكرافت البيدروك
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Sections -->
+    <div class="container">
+        <!-- Releases Section -->
+        <section id="releases" class="content-section active">
+            <div class="section-header">
+                <h3>إصدارات ماينكرافت البيدروك</h3>
+                <div class="search-box">
+                    <input type="text" id="searchReleases" placeholder="ابحث في الإصدارات...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="posts-grid" id="releasesGrid">
+                <!-- Posts will be loaded here dynamically -->
+            </div>
+        </section>
+
+        <!-- Mods Section -->
+        <section id="mods" class="content-section">
+            <div class="section-header">
+                <h3>مودات ماينكرافت البيدروك</h3>
+                <div class="search-box">
+                    <input type="text" id="searchMods" placeholder="ابحث في المودات...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="posts-grid" id="modsGrid">
+                <!-- Posts will be loaded here dynamically -->
+            </div>
+        </section>
+
+        <!-- Admin Panel -->
+        <section class="admin-panel" id="adminPanel">
+            <div class="admin-header">
+                <h3>لوحة تحكم الأدمن</h3>
+                <p>من هنا يمكنك نشر محتوى جديد في الموقع</p>
+            </div>
+            <form class="admin-form" id="adminForm">
+                <div class="form-group">
+                    <label for="postTitle">عنوان المنشور</label>
+                    <input type="text" id="postTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="postImage">رابط الصورة أو الفيديو</label>
+                    <input type="url" id="postImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="postLink">رابط التحميل</label>
+                    <input type="url" id="postLink" required>
+                </div>
+                <div class="form-group">
+                    <label for="postCategory">القسم</label>
+                    <select id="postCategory" required>
+                        <option value="">اختر القسم</option>
+                        <option value="releases">إصدارات ماينكرافت البيدروك</option>
+                        <option value="mods">مودات ماينكرافت البيدروك</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="postDescription">وصف المنشور</label>
+                    <textarea id="postDescription" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="publish-btn">نشر المنشور</button>
+                    <button type="button" class="cancel-btn" id="cancelAdmin">إلغاء</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Ad Publish Section -->
+        <section class="ad-publish" id="publish-ad">
+            <h3>انشر إعلانك</h3>
+            <p>لنشر إعلانك على موقعنا، يرجى إدخال الرمز المخصص للإعلان</p>
+            <div class="code-input">
+                <input type="text" id="adCode" placeholder="أدخل الرمز">
+                <button id="verifyAdCode">تحقق</button>
+            </div>
+            <p>إذا لم يكن لديك رمز، يمكنك التواصل معنا عبر فيسبوك</p>
+            <a href="https://www.facebook.com/profile.php?id=61580406166615&mibextid=rS40aB7S9Ucbxw6v" target="_blank" class="facebook-btn">
+                <i class="fab fa-facebook"></i>
+                تواصل معنا على فيسبوك
+            </a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>عن الموقع</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">من نحن</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">الشروط والأحكام</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>الإصدارات</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">أحدث الإصدارات</a></li>
+                        <li><a href="#">الإصدارات القديمة</a></li>
+                        <li><a href="#">إصدارات بيتا</a></li>
+                        <li><a href="#">إصدارات التحديث</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>المودات</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">مودات السيارات</a></li>
+                        <li><a href="#">مودات الأسلحة</a></li>
+                        <li><a href="#">مودات البناء</a></li>
+                        <li><a href="#">مودات المغامرة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>الدعم</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">أرشيف المشاكل</a></li>
+                        <li><a href="#">دليل التثبيت</a></li>
+                        <li><a href="#">طلب دعم فني</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2023 موقع ماينكرافت البيدروك</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div class="modal" id="adminLoginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>دخول الأدمن</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="adminPassword">كلمة المرور</label>
+                <input type="password" id="adminPassword" placeholder="أدخل كلمة المرور">
+            </div>
+            <div class="form-actions">
+                <button id="submitAdminPassword" class="publish-btn">دخول</button>
+                <button class="close-modal cancel-btn">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ad Publish Modal -->
+    <div class="modal" id="adPublishModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>نشر إعلان</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="adForm">
+                <div class="form-group">
+                    <label for="adTitle">عنوان الإعلان</label>
+                    <input type="text" id="adTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="adImage">رابط الصورة</label>
+                    <input type="url" id="adImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="adLink">رابط الإعلان</label>
+                    <input type="url" id="adLink" required>
+                </div>
+                <div class="form-group full-width">
+                    <label for="adDescription">وصف الإعلان</label>
+                    <textarea id="adDescription" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="publish-btn">نشر الإعلان</button>
+                    <button type="button" class="close-modal cancel-btn">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // البيانات المخزنة محلياً
+        let posts = JSON.parse(localStorage.getItem('minecraftPosts')) || {
+            releases: [],
+            mods: []
+        };
+
+        let ads = JSON.parse(localStorage.getItem('minecraftAds')) || [];
+        let adCodes = JSON.parse(localStorage.getItem('adCodes')) || {};
+
+        // توليد رمز إعلان عشوائي
+        function generateAdCode() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = '';
+            for (let i = 0; i < 8; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            
+            // حفظ الرمز مع تاريخ انتهاء الصلاحية (7 أيام من الآن)
+            adCodes[code] = {
+                expires: Date.now() + (7 * 24 * 60 * 60 * 1000),
+                used: false
+            };
+            
+            localStorage.setItem('adCodes', JSON.stringify(adCodes));
+            return code;
+        }
+
+        // تنظيف الرموز المنتهية الصلاحية
+        function cleanExpiredCodes() {
+            const now = Date.now();
+            for (const code in adCodes) {
+                if (adCodes[code].expires < now) {
+                    delete adCodes[code];
+                }
+            }
+            localStorage.setItem('adCodes', JSON.stringify(adCodes));
+        }
+
+        // تحميل المحتوى عند بدء التشغيل
+        document.addEventListener('DOMContentLoaded', function() {
+            cleanExpiredCodes();
+            renderPosts('releases');
+            renderPosts('mods');
+            
+            // توليد رمز إعلان جديد عند تحميل الصفحة (لأغراض العرض)
+            const newCode = generateAdCode();
+            console.log('رمز الإعلان الجديد:', newCode);
+        });
+
+        // عرض المنشورات في القسم المحدد
+        function renderPosts(section) {
+            const grid = document.getElementById(`${section}Grid`);
+            grid.innerHTML = '';
+            
+            // عرض منشورات الأدمن أولاً
+            posts[section].forEach(post => {
+                const postElement = createPostElement(post, 'admin');
+                grid.appendChild(postElement);
+            });
+            
+            // عرض الإعلانات النشطة
+            const now = Date.now();
+            ads.forEach(ad => {
+                if (ad.section === section && ad.expires > now) {
+                    const adElement = createPostElement(ad, 'ad');
+                    grid.appendChild(adElement);
+                }
+            });
+        }
+
+        // إنشاء عنصر منشور
+        function createPostElement(data, type) {
+            const postCard = document.createElement('div');
+            postCard.className = 'post-card';
+            
+            const badge = type === 'admin' ? 
+                `<span class="post-type">منشور رسمي</span>` : 
+                `<span class="ad-badge">إعلان</span>`;
+            
+            postCard.innerHTML = `
+                <img src="${data.image}" alt="${data.title}" class="post-image">
+                <div class="post-content">
+                    <h4>${data.title}</h4>
+                    <p>${data.description}</p>
+                    <div class="post-meta">
+                        <a href="${data.link}" target="_blank" class="cta-btn" style="padding: 8px 15px; font-size: 0.9rem;">تحميل</a>
+                        ${badge}
+                    </div>
+                    ${type === 'ad' ? '<button class="close-ad" style="background: none; border: none; color: #ff5722; cursor: pointer; margin-top: 10px;">إغلاق الإعلان</button>' : ''}
+                </div>
+            `;
+            
+            if (type === 'ad') {
+                const closeBtn = postCard.querySelector('.close-ad');
+                closeBtn.addEventListener('click', function() {
+                    postCard.remove();
+                });
+            }
+            
+            return postCard;
+        }
+
+        // تبديل الأقسام
+        document.querySelectorAll('.section-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // إزالة النشاط من جميع الأقسام
+                document.querySelectorAll('.section-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                
+                // إضافة النشاط للقسم المحدد
+                this.classList.add('active');
+                const sectionId = this.getAttribute('data-section');
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+
+        // البحث في المنشورات
+        document.getElementById('searchReleases').addEventListener('input', function() {
+            filterPosts('releases', this.value);
+        });
+        
+        document.getElementById('searchMods').addEventListener('input', function() {
+            filterPosts('mods', this.value);
+        });
+
+        function filterPosts(section, query) {
+            const grid = document.getElementById(`${section}Grid`);
+            const posts = grid.querySelectorAll('.post-card');
+            
+            posts.forEach(post => {
+                const title = post.querySelector('h4').textContent.toLowerCase();
+                const description = post.querySelector('p').textContent.toLowerCase();
+                const searchTerm = query.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+
+        // إدارة لوحة الأدمن
+        document.getElementById('adminLoginBtn').addEventListener('click', function() {
+            document.getElementById('adminLoginModal').classList.add('active');
+        });
+
+        document.getElementById('submitAdminPassword').addEventListener('click', function() {
+            const password = document.getElementById('adminPassword').value;
+            if (password === '2009bbh2009') {
+                document.getElementById('adminLoginModal').classList.remove('active');
+                document.getElementById('adminPanel').classList.add('active');
+            } else {
+                alert('كلمة المرور غير صحيحة!');
+            }
+        });
+
+        document.getElementById('cancelAdmin').addEventListener('click', function() {
+            document.getElementById('adminPanel').classList.remove('active');
+        });
+
+        // نشر منشور جديد من الأدمن
+        document.getElementById('adminForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('postTitle').value;
+            const image = document.getElementById('postImage').value;
+            const link = document.getElementById('postLink').value;
+            const category = document.getElementById('postCategory').value;
+            const description = document.getElementById('postDescription').value;
+            
+            const newPost = {
+                title,
+                image,
+                link,
+                description,
+                date: new Date().toLocaleDateString('ar-EG')
+            };
+            
+            posts[category].push(newPost);
+            localStorage.setItem('minecraftPosts', JSON.stringify(posts));
+            
+            renderPosts(category);
+            this.reset();
+            alert('تم نشر المنشور بنجاح!');
+        });
+
+        // التحقق من رمز الإعلان
+        document.getElementById('verifyAdCode').addEventListener('click', function() {
+            const code = document.getElementById('adCode').value;
+            const now = Date.now();
+            
+            if (adCodes[code] && !adCodes[code].used && adCodes[code].expires > now) {
+                adCodes[code].used = true;
+                localStorage.setItem('adCodes', JSON.stringify(adCodes));
+                document.getElementById('adPublishModal').classList.add('active');
+            } else {
+                alert('الرمز غير صالح أو منتهي الصلاحية!');
+            }
+        });
+
+        // نشر إعلان جديد
+        document.getElementById('adForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('adTitle').value;
+            const image = document.getElementById('adImage').value;
+            const link = document.getElementById('adLink').value;
+            const description = document.getElementById('adDescription').value;
+            
+            const newAd = {
+                title,
+                image,
+                link,
+                description,
+                section: 'releases', // يمكن تعديله ليشمل كلا القسمين
+                date: new Date().toLocaleDateString('ar-EG'),
+                expires: Date.now() + (7 * 24 * 60 * 60 * 1000) // 7 أيام
+            };
+            
+            ads.push(newAd);
+            localStorage.setItem('minecraftAds', JSON.stringify(ads));
+            
+            renderPosts('releases');
+            this.reset();
+            document.getElementById('adPublishModal').classList.remove('active');
+            alert('تم نشر الإعلان بنجاح! سيكون نشطاً لمدة 7 أيام.');
+        });
+
+        // إغلاق النوافذ المنبثقة
+        document.querySelectorAll('.close-modal').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+            });
+        });
+
+        // إغلاق النوافذ المنبثقة بالنقر خارجها
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
